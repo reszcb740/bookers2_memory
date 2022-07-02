@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   end
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user_id
+    @book.user_id = current_user.id
     @books = Book.all
     @user = current_user
     @book.save
