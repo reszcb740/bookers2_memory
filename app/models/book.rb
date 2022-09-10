@@ -6,6 +6,9 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true, length: { maximum: 200 }
   validates :user_id, presence: true
+  scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
+  scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
