@@ -53,16 +53,13 @@
           </thead>
           <tbody>
             <tr>
+              <td><%= @books.created_6days.count %></td>
+              <td><%= @books.created_5days.count %></td>
+              <td><%= @books.created_4days.count %></td>
+              <td><%= @books.created_3days.count %></td>
+              <td><%= @books.created_2days.count %></td>
               <td><%= @today_book.count %></td>
               <td><%= @yesterday_book.count %></td>
-              <td>
-                <% if @yesterday_book.count == 0 %>
-                前日の投稿はありません
-                <% else %>
-                 <% @the_day_before = @today_book.count / @yesterday_book.count.to_f %>
-                 <%= (@the_day_before * 100).round %>
-                <% end %>
-              </td>
             </tr>
           </tbody>
         </table>
